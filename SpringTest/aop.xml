@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="fooTarget" class="Maintest.FooImpl"/>
+	<bean id="myAdvice" class="Maintest.PrintBeforeAdvice"/>
+	<bean id="foo" class="Maintest.ProxyFactoryBean">
+		<!--设置代理的接口-->
+		<property name="proxyInterfaces" value="Maintest.FooInterface"></property>
+		<!--设置要代理的目标类-->
+		<property name="target" ref ="fooTarget"> </property>
+		<!--程序中的advice-->
+		<property name="interceptorNames" value="myAdvice"></property>	
+    </bean>
+  </beans>
